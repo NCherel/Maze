@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 
@@ -64,6 +66,51 @@ public class Maze implements GraphInterface{
 	@Override
 	public int getWeight(VertexInterface src, VertexInterface dst) {
 		return 1;
+	}
+	
+	public final void initFromTextFile(String fileName) {
+		
+		try {
+			BufferedReader buffer = new BufferedReader(new FileReader(fileName));
+			
+			for(int i=0; i < HEIGHT; i++)
+			{
+				String line = buffer.readLine();
+				
+				for(int j=0; j < WIDTH; j++)
+				{
+					switch(line.charAt(j))
+					{
+						case 'A' :
+							boxes[i][j] = new ABox(this,i,j);
+							break;
+							
+						case 'W' :
+							boxes[i][j] = new WBox(this,i,j);
+							break;
+							
+						case 'E' :
+							boxes[i][j] = new EBox(this,i,j);
+							break;
+							
+						case 'D' :
+							boxes[i][j] = new DBox(this,i,j);
+							break;
+					}
+					
+					System.out.print(line.charAt(j));
+				}
+				
+				System.out.println("\n");
+			}
+			
+			buffer.close();
+	}
+		
+	catch(Exception e) {
+		System.out.print("Fichier non trouvé");
+		return;
+		}
 	}
 	
 }
