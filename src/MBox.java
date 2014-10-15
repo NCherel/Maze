@@ -1,5 +1,5 @@
 
-public abstract class MBox {
+public abstract class MBox implements VertexInterface{
 	
 	private final Maze maze;
 	private final int line;
@@ -12,5 +12,20 @@ public abstract class MBox {
 		this.column = column;
 	}
 	
+	@Override
+	public String getLabel() {
+		return '('+Integer.toString(line)+','+Integer.toString(column)+')';
+	}
 
+	public final int getLine() {
+		return line;
+	}
+
+	public final int getColumn() {
+		return column;
+	}
+	
+	public boolean isAccessible() {
+		return true;
+	}
 }
