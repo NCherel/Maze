@@ -1,9 +1,14 @@
+package maze;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import dijkstra.GraphInterface;
+import dijkstra.VertexInterface;
 
 
 public class Maze implements GraphInterface{
