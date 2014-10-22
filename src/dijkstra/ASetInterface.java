@@ -1,7 +1,7 @@
 package dijkstra;
 
 public interface ASetInterface {
-	
+
 	//permet de tester l'appartenance à l'ensemble	
 	public boolean contains(VertexInterface vertex);
 	
