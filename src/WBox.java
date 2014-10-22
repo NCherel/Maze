@@ -1,3 +1,5 @@
+import java.io.PrintWriter;
+
 
 public class WBox extends MBox{
 	
@@ -8,4 +10,12 @@ public class WBox extends MBox{
 	public boolean isAccessible() {
 		return false;
 	}
+
+	@Override
+	public void writeCharTo(PrintWriter printer) {
+		printer.print('W');
+		
+	}
+	
+	
 }

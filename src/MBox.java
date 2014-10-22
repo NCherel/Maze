@@ -1,3 +1,5 @@
+import java.io.PrintWriter;
+
 
 public abstract class MBox implements VertexInterface{
 	
@@ -28,4 +30,6 @@ public abstract class MBox implements VertexInterface{
 	public boolean isAccessible() {
 		return true;
 	}
+	
+	public abstract void writeCharTo(PrintWriter printer);
 }

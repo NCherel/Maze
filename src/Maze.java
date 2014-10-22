@@ -1,5 +1,8 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
@@ -69,48 +72,134 @@ public class Maze implements GraphInterface{
 	}
 	
 	public final void initFromTextFile(String fileName) {
-		
-		try {
-			BufferedReader buffer = new BufferedReader(new FileReader(fileName));
 			
-			for(int i=0; i < HEIGHT; i++)
-			{
-				String line = buffer.readLine();
+			BufferedReader buffer = null;
+			FileReader fileReader = null;
+			
+			try {
 				
-				for(int j=0; j < WIDTH; j++)
+				fileReader = new FileReader(fileName);
+				buffer = new BufferedReader(fileReader);
+				
+				for(int i=0; i < HEIGHT; i++)
 				{
-					switch(line.charAt(j))
+					String line = buffer.readLine();
+					
+					if(line == null)
+						throw new MazeReadingException(fileName, i, "Not enough lines");
+					
+					if(line.length() < WIDTH)
+						throw new MazeReadingException(fileName, i, "Line too short");
+					
+					if(line.length() > WIDTH)
+						throw new MazeReadingException(fileName, i, "Line too long");
+					
+					for(int j=0; j < WIDTH; j++)
 					{
-						case 'A' :
-							boxes[i][j] = new ABox(this,i,j);
-							break;
-							
-						case 'W' :
-							boxes[i][j] = new WBox(this,i,j);
-							break;
-							
-						case 'E' :
-							boxes[i][j] = new EBox(this,i,j);
-							break;
-							
-						case 'D' :
-							boxes[i][j] = new DBox(this,i,j);
-							break;
+						switch(line.charAt(j))
+						{
+							case 'A' :
+								boxes[i][j] = new ABox(this,i,j);
+								break;
+								
+							case 'W' :
+								boxes[i][j] = new WBox(this,i,j);
+								break;
+								
+							case 'E' :
+								boxes[i][j] = new EBox(this,i,j);
+								break;
+								
+							case 'D' :
+								boxes[i][j] = new DBox(this,i,j);
+								break;
+								
+							default :
+								throw new MazeReadingException(fileName, i, "Incorrect Character " + line.charAt(j) );
+						}
 					}
 					
-					System.out.print(line.charAt(j));
 				}
-				
-				System.out.println("\n");
 			}
-			
-			buffer.close();
-	}
 		
-	catch(Exception e) {
-		System.out.print("Fichier non trouvé");
-		return;
+		catch(MazeReadingException e) {
+			System.err.print(e.getMessage());
+		}
+			
+		catch(FileNotFoundException e) {
+			System.err.print("Error opening : "+ fileName);
+		}
+			
+		catch(IOException e) {
+			System.err.print("read error: "+ fileName);
+		}
+			
+		catch(Exception e) {
+			System.err.print("Unknown error");
+			e.printStackTrace(System.err);
+		}
+	
+		
+		finally {
+			if(buffer != null)
+			{
+				try
+				{
+					buffer.close();
+				}
+			
+				catch(Exception e){};
+			}
 		}
 	}
 	
+	
+	public final void saveToTextFile(String fileName) {
+		
+		PrintWriter printer = null;
+				
+		try {
+			printer = new PrintWriter(fileName);
+			
+			for(int i = 0; i < HEIGHT; i++)
+			{				
+				for(int j = 0; j < WIDTH; j++)
+				{
+					boxes[i][j].writeCharTo(printer);
+				}
+				
+				printer.println();
+			}
+		}
+		
+		catch(FileNotFoundException e)
+		{
+			System.err.print("File not found : "+ fileName);
+			return;
+		}
+		
+		catch(SecurityException e)
+		{
+			System.err.print("Security exception for file : "+ fileName);
+			return;
+		}
+		
+		catch(Exception e)
+		{
+			System.err.print("Unknown error for file : "+ fileName);
+			return;
+		}
+		
+		finally {
+			if(printer != null)
+			{
+				try {
+					printer.close();
+				}
+				
+				catch(Exception e) 
+				{}
+			}
+		}
+	}
 }
