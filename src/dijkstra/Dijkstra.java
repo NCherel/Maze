@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Dijkstra {
 
-	private	PreviousInterface dijkstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous) {
+	private	static PreviousInterface dijkstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous) {
 		
 		ArrayList<VertexInterface> allVertices = g.getAllVertices();
 		int n = allVertices.size();
@@ -50,10 +50,10 @@ public class Dijkstra {
 			{
 				if(!a.contains(vertex))
 				{
-					if(pi.getValue(vertex) < piPivot)
+					if(pi.getValue(vertex) < piNewPivot)
 					{
-						pivot = vertex;
-						piPivot = pi.getValue(vertex);
+						newPivot = vertex;
+						piNewPivot = pi.getValue(vertex);
 					}
 				}
 			}
@@ -63,11 +63,17 @@ public class Dijkstra {
 			if(newPivot == null)
 				return previous;
 			
-			//sinon on rajoute le nouveau pivot et on change de pivot			
-			a.add(newPivot);
-			pivot = newPivot;
-			piPivot = piNewPivot;
+			//sinon on rajoute le nouveau pivot et on change de pivot
+			else {			
+				a.add(newPivot);
+				pivot = newPivot;
+				piPivot = piNewPivot;
+			}
 			
 		}
+	}
+	
+	public static PreviousInterface dijkstra(GraphInterface g, VertexInterface r) {		
+		return dijkstra(g,r, new ASet(), new Pi(), new Previous());
 	}
 }
