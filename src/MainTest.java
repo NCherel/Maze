@@ -12,8 +12,6 @@ public class MainTest {
 		laby.initFromTextFile("data/labyrinthe.txt");
 		laby.saveToTextFile("data/labyrinthe2.txt");
 		
-		
-
 	}
 
 }
