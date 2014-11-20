@@ -1,5 +1,8 @@
 package maze;
 
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,9 +12,11 @@ import java.util.ArrayList;
 
 import dijkstra.GraphInterface;
 import dijkstra.VertexInterface;
+import fr.enst.inf103.ui.MazeView;
+import fr.enst.inf103.ui.MazeViewSource;
 
 
-public class Maze implements GraphInterface{
+public class Maze implements GraphInterface, MazeViewSource{
 
 	public static final int HEIGHT = 10;
 	public static final int WIDTH = 10;
@@ -207,4 +212,51 @@ public class Maze implements GraphInterface{
 			}
 		}
 	}
+
+	
+	@Override
+	public boolean drawMaze(Graphics g, MazeView mazeView) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public String getSymbolForBox(int row, int column) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSymbolForBox(int row, int column, String symbol) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean handleClick(MouseEvent e, MazeView mazeView) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean handleKey(KeyEvent e, MazeView mazeView) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	
+	
 }
