@@ -15,8 +15,7 @@ public class MazeController implements MazeViewController{
 
 	@Override
 	public MazeViewSource getMazeViewSource() {
-		// TODO Auto-generated method stub
-		return null;
+		return maze;
 	}
 
 	@Override
