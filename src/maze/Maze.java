@@ -214,6 +214,12 @@ public class Maze implements GraphInterface, MazeViewSource{
 	}
 
 	
+	
+	
+	
+	
+	///// MAZE VIEW SOURCE ////
+	
 	@Override
 	public boolean drawMaze(Graphics g, MazeView mazeView) {
 		// TODO Auto-generated method stub
@@ -229,7 +235,7 @@ public class Maze implements GraphInterface, MazeViewSource{
 	@Override
 	public int getWidth() {
 		// TODO Auto-generated method stub
-		return 0;
+		return WIDTH ;
 	}
 	
 	@Override
