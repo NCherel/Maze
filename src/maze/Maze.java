@@ -241,7 +241,7 @@ public class Maze implements GraphInterface, MazeViewSource{
 	@Override
 	public String getSymbolForBox(int row, int column) {
 		// TODO Auto-generated method stub
-		return null;
+		return boxes[row][column].getSymbol();
 	}
 
 	@Override
