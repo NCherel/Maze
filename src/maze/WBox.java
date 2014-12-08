@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 public class WBox extends MBox{
 	
 	public WBox(Maze maze,int line, int column) {
-		super(maze, line, column);
+		super(maze, line, column,"W");
 	}
 	
 	public boolean isAccessible() {

@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 public class ABox extends MBox {
 	
 	public ABox(Maze maze,int line, int column) {
-		super(maze, line, column);
+		super(maze, line, column, "A");
 	}
 
 	@Override
