@@ -11,32 +11,26 @@ import fr.enst.inf103.ui.MazeViewSource;
 public class MazeController implements MazeViewController{
 	
 	private Maze maze;
+	
+	
+
+	public MazeController() {
+		maze = new Maze();
+	}
 
 	@Override
 	public void calculateShortestPath() {
 		
 		MBox start = maze.getStart();
 		MBox finish = maze.getFinish();
-		
-		if(start != null && finish != null)
-		{			
-			ArrayList<VertexInterface> path = (Dijkstra.dijkstra(maze, start)).getShortestPathTo(finish);
+
+		ArrayList<VertexInterface> path = (Dijkstra.dijkstra(maze, start)).getShortestPathTo(finish);
 			
-			for(VertexInterface vertex : path)
-			{
-				MBox box = (MBox) vertex;
-				
-				// Question
-				int line = box.getLine();
-				int column = box.getColumn();
-				
-				maze.setSymbolForBox(line, column, "*");
-				
-				
-				/* equivalent to :
-				 * box.setSymbol("*");
-				 */
-			}
+		for(VertexInterface vertex : path)
+		{
+			MBox box = (MBox) vertex;				
+			box.setSymbol("*");
+
 		}
 	}
 

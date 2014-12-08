@@ -12,9 +12,4 @@ public class ABox extends MBox {
 	public void writeCharTo(PrintWriter printer) {
 		printer.print('A');		
 	}
-	
-	public boolean isFinish()
-	{
-		return true;
-	}
 }

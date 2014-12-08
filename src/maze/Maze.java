@@ -25,6 +25,18 @@ public class Maze implements GraphInterface, MazeViewSource{
 	
 	public Maze() {
 		boxes = new MBox[HEIGHT][WIDTH];
+		
+		for(int i=0; i < WIDTH; i ++)
+		{
+			for(int j=0; j < HEIGHT; j++)
+			{
+				if(i==0 || j ==0 || i == WIDTH -1 || j== HEIGHT -1)
+					boxes[i][j] = new WBox(this, i, j);
+				
+				else
+					boxes[i][j] = new EBox(this, i, j);
+			}
+		}
 	}
 
 	public final MBox getBoxes(int line, int column) {

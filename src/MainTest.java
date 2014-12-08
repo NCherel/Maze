@@ -1,11 +1,13 @@
+import fr.enst.inf103.ui.MazeWindow;
 import maze.Maze;
+import maze.MazeController;
 
 
 public class MainTest {
 
 	public static void main(String[] args) {
-		Maze laby = new Maze();
-		laby.initFromTextFile("data/labyrinthe.txt");
+		MazeController controller = new MazeController();
+		MazeWindow window = new MazeWindow("Notre labyrinthe", controller);
 		
 	}
 

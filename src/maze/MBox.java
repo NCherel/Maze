@@ -48,10 +48,10 @@ public abstract class MBox implements VertexInterface{
 	public abstract void writeCharTo(PrintWriter printer);
 	
 	public boolean isStart(){
-		return false;
+		return symbol=="D";
 	}
 	
 	public boolean isFinish(){
-		return false;
+		return symbol=="A";
 	}
 }

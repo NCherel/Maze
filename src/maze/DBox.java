@@ -12,12 +12,5 @@ public class DBox extends MBox {
 	public void writeCharTo(PrintWriter printer) {
 		printer.print('D');
 		
-	}
-	
-	public boolean isStart()
-	{
-		return true;
-	}
-	
-	
+	}	
 }
