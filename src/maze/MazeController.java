@@ -4,6 +4,8 @@ import fr.enst.inf103.ui.MazeViewController;
 import fr.enst.inf103.ui.MazeViewSource;
 
 public class MazeController implements MazeViewController{
+	
+	private Maze maze;
 
 	@Override
 	public void calculateShortestPath() {
@@ -25,14 +27,13 @@ public class MazeController implements MazeViewController{
 
 	@Override
 	public MazeViewSource openMaze(String fileName) {
-		// TODO Auto-generated method stub
-		return null;
+		maze.initFromTextFile(fileName);
+		return maze;
 	}
 
 	@Override
-	public void saveMazeAs(String fileName) {
-		// TODO Auto-generated method stub
-		
+	public void saveMazeAs(String fileName) {	
+		maze.saveToTextFile(fileName);
 	}
 	
 
