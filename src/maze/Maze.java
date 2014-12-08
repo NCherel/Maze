@@ -253,7 +253,7 @@ public class Maze implements GraphInterface, MazeViewSource{
 	@Override
 	public boolean handleClick(MouseEvent e, MazeView mazeView) {
 		// TODO Auto-generated method stub
-		return false;
+		return false;  // Utilise l'implémentation par défaut. //
 	}
 
 	@Override
