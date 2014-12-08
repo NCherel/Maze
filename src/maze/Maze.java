@@ -214,6 +214,8 @@ public class Maze implements GraphInterface, MazeViewSource{
 	}
 
 	
+	
+	////////// Maze View Source///
 	@Override
 	public boolean drawMaze(Graphics g, MazeView mazeView) {
 		// TODO Auto-generated method stub
@@ -256,6 +258,34 @@ public class Maze implements GraphInterface, MazeViewSource{
 		return false;
 	}
 
+	
+	public MBox getStart()
+	{
+		for(MBox[] line : boxes)
+		{
+			for(MBox box : line)
+			{
+				if(box.isStart())
+					return box;
+			}
+		}
+		
+		return null;
+	}
+	
+	public MBox getFinish()
+	{
+		for(MBox[] line : boxes)
+		{
+			for(MBox box : line)
+			{
+				if(box.isFinish())
+					return box;
+			}
+		}
+		
+		return null;
+	}
 
 	
 	

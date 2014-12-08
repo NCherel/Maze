@@ -14,5 +14,10 @@ public class DBox extends MBox {
 		
 	}
 	
+	public boolean isStart()
+	{
+		return true;
+	}
+	
 	
 }
