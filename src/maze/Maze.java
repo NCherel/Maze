@@ -229,7 +229,7 @@ public class Maze implements GraphInterface, MazeViewSource{
 	@Override
 	public int getHeight() {
 		// TODO Auto-generated method stub
-		return 0;
+		return HEIGHT ;
 	}
 	
 	@Override
