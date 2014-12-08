@@ -17,22 +17,26 @@ public class MazeController implements MazeViewController{
 		
 		MBox start = maze.getStart();
 		MBox finish = maze.getFinish();
-		ArrayList<VertexInterface> path = (Dijkstra.dijkstra(maze, start)).getShortestPathTo(finish);
 		
-		for(VertexInterface vertex : path)
-		{
-			MBox box = (MBox) vertex;
+		if(start != null && finish != null)
+		{			
+			ArrayList<VertexInterface> path = (Dijkstra.dijkstra(maze, start)).getShortestPathTo(finish);
 			
-			// Question
-			int line = box.getLine();
-			int column = box.getColumn();
-			
-			maze.setSymbolForBox(line, column, "*");
-			
-			
-			/* equivalent to :
-			 * box.setSymbol("*");
-			 */
+			for(VertexInterface vertex : path)
+			{
+				MBox box = (MBox) vertex;
+				
+				// Question
+				int line = box.getLine();
+				int column = box.getColumn();
+				
+				maze.setSymbolForBox(line, column, "*");
+				
+				
+				/* equivalent to :
+				 * box.setSymbol("*");
+				 */
+			}
 		}
 	}
 
