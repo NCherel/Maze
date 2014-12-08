@@ -215,47 +215,47 @@ public class Maze implements GraphInterface, MazeViewSource{
 
 	
 	
-	////////// Maze View Source///
+	///// MAZE VIEW SOURCE ////
 	@Override
 	public boolean drawMaze(Graphics g, MazeView mazeView) {
 		// TODO Auto-generated method stub
-		return false;
+		return false;  // Utilise l'implémentation par défaut. //
 	}
 
 	@Override
 	public int getHeight() {
 		// TODO Auto-generated method stub
-		return 0;
+		return HEIGHT ;
 	}
 	
 	@Override
 	public int getWidth() {
 		// TODO Auto-generated method stub
-		return 0;
+		return WIDTH ;
 	}
 	
 	@Override
 	public String getSymbolForBox(int row, int column) {
 		// TODO Auto-generated method stub
-		return null;
+		return boxes[row][column].getSymbol();
 	}
 
 	@Override
 	public void setSymbolForBox(int row, int column, String symbol) {
 		// TODO Auto-generated method stub
-		
+		boxes[row][column].setSymbol(symbol) ;
 	}
 
 	@Override
 	public boolean handleClick(MouseEvent e, MazeView mazeView) {
 		// TODO Auto-generated method stub
-		return false;
+		return false;  // Utilise l'implémentation par défaut. //
 	}
 
 	@Override
 	public boolean handleKey(KeyEvent e, MazeView mazeView) {
 		// TODO Auto-generated method stub
-		return false;
+		return false;  // Utilise l'implémentation par défaut. //
 	}
 
 	

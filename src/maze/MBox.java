@@ -10,12 +10,22 @@ public abstract class MBox implements VertexInterface{
 	private final Maze maze;
 	private final int line;
 	private final int column;
+	private String symbol;  
 	
 	
-	public MBox(Maze maze, int line, int column) {
+	public String getSymbol() {
+		return symbol;
+	}
+
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	public MBox(Maze maze, int line, int column, String symbol) {
 		this.maze = maze;
 		this.line = line;
 		this.column = column;
+		this.symbol = symbol;
 	}
 	
 	@Override
