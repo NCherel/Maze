@@ -26,11 +26,10 @@ public class MazeController implements MazeViewController{
 
 		ArrayList<VertexInterface> path = (Dijkstra.dijkstra(maze, start)).getShortestPathTo(finish);
 			
-		for(VertexInterface vertex : path)
+		for(int i=1; i < path.size(); i++)
 		{
-			MBox box = (MBox) vertex;				
+			MBox box = (MBox) path.get(i);				
 			box.setSymbol("*");
-
 		}
 	}
 
