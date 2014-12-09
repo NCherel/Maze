@@ -21,6 +21,8 @@ public class MazeController implements MazeViewController{
 	@Override
 	public void calculateShortestPath() {
 		
+		maze.clear();
+		
 		MBox start = maze.getStart();
 		MBox finish = maze.getFinish();
 		

@@ -334,6 +334,16 @@ public class Maze implements GraphInterface, MazeViewSource{
 		return null;
 	}
 
-	
+	public void clear()
+	{
+		for(int row = 0; row < WIDTH; row++)
+		{
+			for(int column = 0; column < HEIGHT; column++)
+			{
+				if(boxes[row][column].getSymbol() == "*")
+					boxes[row][column].setSymbol("E");
+			}
+		}
+	}
 	
 }
