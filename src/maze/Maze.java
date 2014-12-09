@@ -255,7 +255,37 @@ public class Maze implements GraphInterface, MazeViewSource{
 	@Override
 	public void setSymbolForBox(int row, int column, String symbol) {
 		// TODO Auto-generated method stub
-		boxes[row][column].setSymbol(symbol) ;
+		setTypeForBox(symbol, row, column);
+		
+	}
+	
+	private void setTypeForBox (String symbol, int row, int column) {
+		switch(symbol.charAt(0))
+		{
+			case 'A' :
+				boxes[row][column] = new ABox(this,row,column);
+				break;
+				
+			case 'W' :
+				boxes[row][column] = new WBox(this,row,column);
+				break;
+				
+			case 'E' :
+				boxes[row][column] = new EBox(this,row,column);
+				break;
+				
+			case 'D' :
+				boxes[row][column] = new DBox(this,row,column);
+				break;
+			
+			case '*' :	
+				boxes[row][column].setSymbol("*");
+				break ;
+				
+			default :
+				boxes[row][column] = new EBox(this, row, column);
+		}
+		
 	}
 
 	@Override
